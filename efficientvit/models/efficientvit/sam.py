@@ -71,7 +71,7 @@ class SamResize:
 
     def __call__(self, image: np.ndarray) -> np.ndarray:
         print(image.shape)
-        h, w, _ = image.shape
+        h, w = image.shape[-2:]
         long_side = max(h, w)
         if long_side != self.size:
             return self.apply_image(image)
