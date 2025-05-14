@@ -197,7 +197,7 @@ class EfficientViTSam(nn.Module):
         image_encoder: EfficientViTSamImageEncoder,
         prompt_encoder: PromptEncoder,
         mask_decoder: MaskDecoder,
-        image_size: tuple[int, int] = (1024, 512),
+        image_size: tuple[int, int] = (512, 512),
     ) -> None:
         super().__init__()
         self.image_encoder = image_encoder
