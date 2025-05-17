@@ -331,6 +331,7 @@ class EfficientViTSamPredictor:
         )
 
         torch_data = self.model.transform(image).unsqueeze(dim=0).to(get_device(self.model))
+        print(f"Shape: {torch_data.shape}")
         self.features = self.model.image_encoder(torch_data)
         self.is_image_set = True
 
