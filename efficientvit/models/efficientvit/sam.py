@@ -84,7 +84,10 @@ class SamResize:
         """
         target_size = self.get_preprocess_shape(image.shape[0], image.shape[1], self.size)
         print(f"Apply shape: {image.shape}")
-        return np.array(resize(to_pil_image(image[0,:,:,:]), target_size))
+        try:
+            return np.array(resize(to_pil_image(image[0,:,:,:]), target_size))
+        except IndexError:
+            return np.array(resize(to_pil_image(image), target_size))
 
     @staticmethod
     def get_preprocess_shape(oldh: int, oldw: int, long_side_length: int) -> tuple[int, int]:
