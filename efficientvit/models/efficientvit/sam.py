@@ -83,6 +83,7 @@ class SamResize:
         Expects a numpy array with shape HxWxC in uint8 format.
         """
         target_size = self.get_preprocess_shape(image.shape[0], image.shape[1], self.size)
+        print(f"Apply shape: {image.shape}")
         return np.array(resize(to_pil_image(image[0,:,:,:]), target_size))
 
     @staticmethod
