@@ -105,7 +105,7 @@ class SamResize:
         Expects a numpy array with shape HxWxC in uint8 format.
         """
         target_size = self.get_preprocess_shape(image.shape[0], image.shape[1], self.size)
-        print(f"Apply shape: {image.shape}")
+        # print(f"Apply shape: {image.shape}")
         try:
             return np.array(resize(to_pil_image(image[0,:,:,:]), target_size))
         except IndexError:
@@ -357,7 +357,7 @@ class EfficientViTSamPredictor:
         )
 
         torch_data = self.model.transform(image).unsqueeze(dim=0).to(get_device(self.model))
-        print(f"Shape: {torch_data.shape}")
+        # print(f"Shape: {torch_data.shape}")
         self.features = self.model.image_encoder(torch_data)
         self.is_image_set = True
 
